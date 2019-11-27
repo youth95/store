@@ -27,11 +27,11 @@ func (*JSONCodec) Decoder(p []byte, v interface{}) error {
 	return json.Unmarshal(p, v)
 }
 
-var store *Storage
+var Store *Storage
 
 func init() {
 	s, _ := os.UserHomeDir()
-	store = NewStorage(filepath.Join(s, ".go-store"), new(JSONCodec))
+	Store = NewStorage(filepath.Join(s, ".go-store"), new(JSONCodec))
 }
 
 func PathExists(path string) bool {

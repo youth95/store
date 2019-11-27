@@ -7,29 +7,29 @@ import (
 
 func TestNewStorage(t *testing.T) {
 	a := assert.New(t)
-	err := store.Set("/tmp", 12)
+	err := Store.Set("/tmp", 12)
 	a.Nil(err)
 	var value int
-	err = store.Get("/tmp", &value)
+	err = Store.Get("/tmp", &value)
 	a.Nil(err)
 	a.Equal(12, value)
 }
 
 func TestNewStorage2(t *testing.T) {
 	a := assert.New(t)
-	err := store.Set("/mc/a", 12)
+	err := Store.Set("/mc/a", 12)
 	a.Nil(err)
 	var value int
-	err = store.Get("/mc/a", &value)
+	err = Store.Get("/mc/a", &value)
 	a.Nil(err)
 	a.Equal(12, value)
 }
 
 func TestStorage_Exists(t *testing.T) {
 	a := assert.New(t)
-	a.Equal(true,store.Exists("/tmp"))
-	a.Equal(false,store.Exists("/mc"))
-	a.Equal(false,store.Exists("/00"))
+	a.Equal(true,Store.Exists("/tmp"))
+	a.Equal(false,Store.Exists("/mc"))
+	a.Equal(false,Store.Exists("/00"))
 
 }
 
